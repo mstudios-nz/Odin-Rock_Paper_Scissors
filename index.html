@@ -87,8 +87,7 @@ if (humanChoice == computerChoice) {
 // Function to play 5 rounds 
 function playGame () { 
 
-    // Initiating message
-    alert("Welcome! Let's play a game of Rock, Paper, Scissors!!"); //opening message
+   
     
     // For Loop for 5 rounds 
     for (; round < 6;) {
@@ -143,8 +142,22 @@ function playGame () {
         alert("OMG IT'S A TIE!! WE BOTH WIN!!! \n\nFinal Scores: \nYou: " + humanScore + "\nMe: " + computerScore + "\n\nRefresh your browser to play again")
     }
 }
+// RUN SCRIPT
+  //Initiating message
+    
+alert("Welcome! Let's play a game of Rock, Paper, Scissors!!"); //opening message
 
-playGame()
+ //Play game
+playGame();
+
+  //Replay game
+humanScore = 0;         // reset values of global variables
+computerScore = 0;
+round = 1;              
+
+if (confirm("Shall we play again?")) {   // ask user to replay, if yes run playGame
+    playGame(); "Thanks for playing"
+};    
 
 
 </script>
