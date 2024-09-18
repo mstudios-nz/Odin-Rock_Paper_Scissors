@@ -133,23 +133,33 @@ function playGame () {
     */
 
 
-    // Finalising message
-    if (humanScore > computerScore) {
-        alert("YOU WIN THIS GAME!!! \n\nFinal Scores: \nYou: " + humanScore + "\nMe: " + computerScore + "\n\nRefresh your browser to play again")
-    } else if (humanScore < computerScore) {
-        alert("I WIN THIS GAME!!! \n\nFinal Scores: \nYou: " + humanScore + "\nMe: " + computerScore + "\n\nRefresh your browser to play again")
-    } else if (humanScore == computerScore) {
-        alert("OMG IT'S A TIE!! WE BOTH WIN!!! \n\nFinal Scores: \nYou: " + humanScore + "\nMe: " + computerScore + "\n\nRefresh your browser to play again")
+    // Finalising message & request to replay
+
+    if (humanScore > computerScore) {      //If human wins                                             
+        if (confirm("\nYOU WIN THIS GAME!!! \n\nFinal Scores: \nYou: " + humanScore  //display msg, score & ask to play again
+            + "\nMe: " + computerScore + "\n\nShall we play again?")){              //if yes to play again then:
+                humanScore = 0;                                                    // a) reset values of global variables
+                computerScore = 0;
+                round = 1;
+                playGame(); "Thanks for playing"                                   //b) run playGame again; if no: "Thanks for playing"
+        };
+    } else if (humanScore < computerScore) {     //If human loses
+        if (confirm("\nI WIN THIS GAME!!! \n\nFinal Scores: \nYou: " + humanScore   //repeats above display, & action to replay
+            + "\nMe: " + computerScore + "\n\nShall we play again?")){
+                humanScore = 0;         
+                computerScore = 0;
+                round = 1;
+                playGame(); "Thanks for playing"
+        }
+    } else if (humanScore == computerScore) {        // If there's a tie
+        if (confirm("\nOMG IT'S A TIE!! WE BOTH WIN!!! \n\nFinal Scores: \nYou: " + humanScore //repeats above display, & action to replay
+        + "\nMe: " + computerScore + "\n\nShall we play again?")){
+                humanScore = 0;         
+                computerScore = 0;
+                round = 1;  
+                playGame(); "Thanks for playing"
+        }
     }
-
-     //Replay game
-    humanScore = 0;         // reset values of global variables
-    computerScore = 0;
-    round = 1;
-
-    if (confirm("Shall we play again?")) {   // ask user to replay, if yes run playGame
-        playGame(); "Thanks for playing"
-    };
 }
 
 
@@ -160,8 +170,6 @@ alert("Welcome! Let's play a game of Rock, Paper, Scissors!!"); //opening messag
 
  //Play game
 playGame();
-
- 
 
 
 </script>
