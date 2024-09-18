@@ -141,23 +141,27 @@ function playGame () {
     } else if (humanScore == computerScore) {
         alert("OMG IT'S A TIE!! WE BOTH WIN!!! \n\nFinal Scores: \nYou: " + humanScore + "\nMe: " + computerScore + "\n\nRefresh your browser to play again")
     }
+
+     //Replay game
+    humanScore = 0;         // reset values of global variables
+    computerScore = 0;
+    round = 1;
+
+    if (confirm("Shall we play again?")) {   // ask user to replay, if yes run playGame
+        playGame(); "Thanks for playing"
+    };
 }
+
+
 // RUN SCRIPT
-  //Initiating message
-    
+
+//Initiating message    
 alert("Welcome! Let's play a game of Rock, Paper, Scissors!!"); //opening message
 
  //Play game
 playGame();
 
-  //Replay game
-humanScore = 0;         // reset values of global variables
-computerScore = 0;
-round = 1;              
-
-if (confirm("Shall we play again?")) {   // ask user to replay, if yes run playGame
-    playGame(); "Thanks for playing"
-};    
+ 
 
 
 </script>
