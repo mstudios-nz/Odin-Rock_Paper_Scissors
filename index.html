@@ -11,6 +11,8 @@
 
 <script>    
 
+/* HIDE computerChoice FUNCTION
+// function to return random choice for computer
 function computerChoice() {
 let random = Math.random();
 if (random >= 0 && random < 0.33) {
@@ -23,7 +25,22 @@ if (random >= 0 && random < 0.33) {
 }
 
 console.log(computerChoice())  // validating returned value
+*/
 
+
+// function to request user input humanChoice
+function humanChoice () {
+const input = prompt("Let's play Rock, Paper, Scissors. Enter your choice:");
+if (input.toLowerCase() == "rock" ||
+    input.toLowerCase() == "paper"||
+    input.toLowerCase() == "scissors") {
+    return input.toLowerCase();
+} else {
+    return "invalid entry";
+}
+}
+
+console.log(humanChoice())
 
 </script>
 
