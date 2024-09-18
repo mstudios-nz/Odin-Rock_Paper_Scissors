@@ -37,34 +37,45 @@ if (input.toLowerCase() == "rock" ||
 }
 }
 
-//function to play one Round
+//Global Variables for displaying the outcome of Rounds
 let humanScore = 0;
 let computerScore = 0; 
+let message;
 
-function playRound(humanChoice, computerChoice) {
+
+//function to play one round, add 1 to score of winner, and present message
+function playRound(humanChoice, computerChoice) { 
 if (humanChoice == computerChoice) {
-    return "Oh I got that too! That's a Tie";
+    message = "Oh I got that too! That's a Tie";
 } else if (humanChoice == "rock" && computerChoice == "paper") {
-    return "I chose paper which covers rock! YOU LOSE!"
+    computerScore += 1;
+    message = "I chose paper which covers rock! YOU LOSE!";
 } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    return "I chose scissors which rock blunts! YOU WIN!"
+    humanScore += 1;
+    message = "I chose scissors which rock blunts! YOU WIN!";
 } else if (humanChoice == "paper" && computerChoice == "rock") {
-    return "I chose rock which paper covers! YOU WIN!"
+    humanScore += 1;
+    message = "I chose rock which paper covers! YOU WIN!";
 } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    return "I chose scissors which cut paper! YOU LOSE!"
+    computerScore += 1;
+    message = "I chose scissors which cut paper! YOU LOSE!";
 } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    return "I chose rock which blunts scissors! YOU LOSE!"
+    computerScore += 1;
+    message = "I chose rock which blunts scissors! YOU LOSE!";
 } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    return "I chose paper which is cut by scissors! YOU WIN!"
+    humanScore += 1;
+    message = "I chose paper which is cut by scissors! YOU WIN!";
 } else {
-    return "I don't recognise your choice. Please try again."
+    message = "I don't recognise your choice. Please try again."
 }
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
 
-console.log(playRound(humanSelection, computerSelection))
+console.log(message);
+console.log("The score is: You " + humanScore + "   and    me " + computerScore);
 
 
 </script>
