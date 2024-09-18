@@ -11,25 +11,22 @@
 
 <script>    
 
-/* HIDE computerChoice FUNCTION
+
 // function to return random choice for computer
-function computerChoice() {
+function getComputerChoice() {
 let random = Math.random();
 if (random >= 0 && random < 0.33) {
-    return "rock" + random  // + random validating returned value
+    return "rock" 
 } else if (random >= 0.33 && random < 0.66){
-    return "paper"+ random  // + random validating returned value
+    return "paper"
 } else {
-    return "scissors" + random  // + random validating returned value
+    return "scissors" 
 };
 }
 
-console.log(computerChoice())  // validating returned value
-*/
-
 
 // function to request user input humanChoice
-function humanChoice () {
+function getHumanChoice () {
 const input = prompt("Let's play Rock, Paper, Scissors. Enter your choice:");
 if (input.toLowerCase() == "rock" ||
     input.toLowerCase() == "paper"||
@@ -40,7 +37,35 @@ if (input.toLowerCase() == "rock" ||
 }
 }
 
-console.log(humanChoice())
+//function to play one Round
+let humanScore = 0;
+let computerScore = 0; 
+
+function playRound(humanChoice, computerChoice) {
+if (humanChoice == computerChoice) {
+    return "Oh I got that too! That's a Tie";
+} else if (humanChoice == "rock" && computerChoice == "paper") {
+    return "I chose paper which covers rock! YOU LOSE!"
+} else if (humanChoice == "rock" && computerChoice == "scissors") {
+    return "I chose scissors which rock blunts! YOU WIN!"
+} else if (humanChoice == "paper" && computerChoice == "rock") {
+    return "I chose rock which paper covers! YOU WIN!"
+} else if (humanChoice == "paper" && computerChoice == "scissors") {
+    return "I chose scissors which cut paper! YOU LOSE!"
+} else if (humanChoice == "scissors" && computerChoice == "rock") {
+    return "I chose rock which blunts scissors! YOU LOSE!"
+} else if (humanChoice == "scissors" && computerChoice == "paper") {
+    return "I chose paper which is cut by scissors! YOU WIN!"
+} else {
+    return "I don't recognise your choice. Please try again."
+}
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+console.log(playRound(humanSelection, computerSelection))
+
 
 </script>
 
