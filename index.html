@@ -45,9 +45,9 @@ let message;                // result of each round (from playRound function)
 let round = 1;              // track round number
 
 
-//function to play one round, add 1 to score of winner, and present message
+//function to play one round, add 1 to score of winner, add 1 to round, and present message
 function playRound() {
-    let humanChoice = getHumanChoice();             //declare these variables local so they are recalled each time a round is played
+    let humanChoice = getHumanChoice();             //declare these variables locally so they are recalled each time a round is played
     let computerChoice = getComputerChoice();
 // If result is a tie
 if (humanChoice == computerChoice) {
@@ -78,18 +78,16 @@ if (humanChoice == computerChoice) {
     humanScore += 1;
     round += 1;
     message = "I chose paper which is cut by scissors! YOU WIN!";
-// If none of valid options were passed in by getHumanChoice function assume its an invalid entry.    
+// If no valid options were passed in by getHumanChoice function assume its an invalid entry.    
 } else {
     message = "I don't recognise your choice. Please try again."
 }
 }
 
-// Function to play 5 rounds 
+// Function to play Game with 5 rounds 
 function playGame () { 
 
-   
-    
-    // For Loop for 5 rounds 
+    // For Loop for 5 rounds + diplay message and scores
     for (; round < 6;) {
     playRound();
     alert("\n" + message + "\n\nThe score is: \nYou " + humanScore + "\nMe " + computerScore);  //display result & score
@@ -133,8 +131,8 @@ function playGame () {
     */
 
 
-    // Finalising message & request to replay
-
+    // Final message with overall game results, scores AND
+    // Re-run game with reset values if user confirms
     if (humanScore > computerScore) {      //If human wins                                             
         if (confirm("\nYOU WIN THIS GAME!!! \n\nFinal Scores: \nYou: " + humanScore  //display msg, score & ask to play again
             + "\nMe: " + computerScore + "\n\nShall we play again?")){              //if yes to play again then:
@@ -168,8 +166,8 @@ function playGame () {
 //Initiating message    
 alert("Welcome! Let's play a game of Rock, Paper, Scissors!!"); //opening message
 
- //Play game
-playGame();
+ //Play game 
+playGame();   //NOTE: This function loops by calling itself if user confirms yes to replay
 
 
 </script>
